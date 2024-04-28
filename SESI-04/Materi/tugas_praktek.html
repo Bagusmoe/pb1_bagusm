@@ -34,6 +34,7 @@
     } else {
         phi = 3.14;
     }
+
 // menghitung luas dan keliling limgkaran
 
     let luasLingkaran = phi * r * r
@@ -43,6 +44,27 @@
 
     console.log("luasLingkaran", luasLingkaran)
     console.log("kelilingLingkaran", kelilingLingkaran)
+
+// Loop untuk menghitung luas dan keliling lingkaran dengan nilai r dari 1 sampai 10
+     for (let r = 1; r <= 10; r++) {
+// Membuat variabel phi berdasarkan kondisi r
+    let phi;
+    if (r % 7 === 0) {
+        phi = 22/7;
+    } else {
+        phi = 3.14;
+    }
+
+// Menghitung luas dan keliling lingkaran
+    let luasLingkaran = phi * r * r;
+    let kelilingLingkaran = 2 * phi * r;
+
+// Menampilkan hasil
+    console.log("Untuk jari-jari", r + ":");
+    console.log("Luas Lingkaran:", luasLingkaran.toFixed(2));
+    console.log("Keliling Lingkaran:", kelilingLingkaran.toFixed(2));
+    console.log("---------------------------");
+    }
     </script>
 </body>
 </html>
