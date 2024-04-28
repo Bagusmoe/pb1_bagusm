@@ -1,0 +1,35 @@
+(algoritma)
+tugas: menghitung luas dan keliling lingkaran
+
+1. menghitung luas dan keliling lingkaran
+  title = menghitung luas dan keliling lingkaran
+
+2. input input yang diperlukan untuk menghitung luas dan keliling lingkaran
+    let r = 5
+    let phi;
+    if (radius % 7 === 0) {
+        phi = 22/7;
+    } else {
+        phi = 3.14;
+    }
+    <--- hitung luas dan keliling lingkaran --->
+
+    let luasLingkaran = phi * r * r
+    let kelilingLingkaran = 2 * phi * r
+    <--- tampilkan hasil --->
+    console.log("luasLingkaran", luasLingkaran)
+    console.log("kelilingLingkaran", kelilingLingkaran)
+
+3. perhitungan dari > menghitung luas dan keliling lingkaran
+    pi....
+
+4. untuk tampilkan hasil kalkulasi
+    show = output hasil dari menghitung luas dan keliling lingkaran
+
+
+(code)
+.......
+
+
+(hasil/output dari koding)
+screenshot aplikasi > inspect element > jika menggunakan console
