@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan</title>
+</head>
+<body>
+    <h2>Contoh looping menggunakan while</h2>
+    <label>Pesan : </label><input id="pesanInputwhile"><br>
+    <label>Berapa kali : </label><input id="berapaKaliInputwhile"><br>
+    <button onclick="cetakwhile()">Cetak</button>
+    <ol id="outputListwhile"></ol>
+
+    <h2>Contoh looping mengginakan for</h2>
+    <label>Pesan : </label><input id="pesanInput"><br>
+    <label>Berapa kali : </label><input id="berapaKaliInput"><br>
+    <button onclick="cetak()">Cetak</button>
+    <ol id="outputList"></ol>
+
+    <script>
+        // const nama_variabel= document.getElementById("nama_variabel")
+        
+        function cetakwhile() {
+            // Mendapatkan nilai inputan
+            let pesan = document.getElementById("pesanInputwhile").value;
+            let berapaKali = parseInt(document.getElementById("berapaKaliInputwhile").value);
+
+            // Mendapatkan elemen ordered list
+            let outputList = document.getElementById("outputListwhile");
+            
+            // Membersihkan isi ordered list sebelum menambahkan yang baru
+            outputListwhile.innerHTML = "";
+
+            // Memeriksa apakah 'berapaKali' adalah angka
+            if (!isNaN(berapaKali)) {
+                var counter = 0;
+                // Melakukan looping dengan while
+                while (counter < berapaKali) {
+                    var listItem = document.createElement("li");
+                    listItem.textContent = pesan;
+                    outputList.appendChild(listItem);
+                    counter++;
+                }
+            } else {
+                alert("Masukkan angka pada input 'Berapa kali'.");
+            }
+        }
+
+        function cetak() {
+                // Mendapatkan nilai inputan
+                let pesan = document.getElementById("pesanInput").value;
+                let berapaKali = parseInt(document.getElementById("berapaKaliInput").value);
+    
+                // Mendapatkan elemen ordered list
+                let outputList = document.getElementById("outputList");
+                                
+                // Membersihkan isi ordered list sebelum menambahkan yang baru
+                outputList.innerHTML = "";
+    
+                // Memeriksa apakah 'berapaKali' adalah angka
+                if (!isNaN(berapaKali)) {
+                // Membuat output sesuai dengan 'berapaKali' dan menambahkannya ke dalam ordered list
+                    for (let i = 0; i < berapaKali; i++) {
+                        let listItem = document.createElement("li");
+                        listItem.textContent = pesan;
+                        outputList.appendChild(listItem);
+                    }
+                } else {
+                    alert("Masukkan angka pada input 'Berapa kali'.");
+                }
+            }
+    </script>
+</body>
+</html>
