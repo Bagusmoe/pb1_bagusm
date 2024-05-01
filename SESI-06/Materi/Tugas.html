@@ -4,18 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Belajar Animasi Warna</title>
-  
-        <style>
-        .color-animation {
-      transition: color 0.5s ease-in-out;
-        }
-        </style>
     </head>
   <body>
     <h3>Belajar Animasi Warna</h3>
-    <p id="text1" class="color-animation"></p>
-    <p id="text2" class="color-animation"></p>
-    <p id="text3" class="color-animation"></p>
+    <p id="text1" ></p>
+    <p id="text2" ></p>
+    <p id="text3" ></p>
 
     <script>
 
@@ -52,34 +46,44 @@
     }
 
     //   function animasi
+    
     function animasi() {
-    // Tentukan interval untuk mengubah warna setiap 1 detik
-    setInterval(() => {
-    // Ambil elemen-elemen paragraf
-    const paragraphs = document.querySelectorAll('.color-animation');
+    let text1 = document.getElementById("text1");
+    let text2 = document.getElementById("text2");
+    let text3 = document.getElementById("text3");
 
-    // Loop melalui setiap elemen dan ubah warnanya secara acak
-    paragraphs.forEach(paragraph => {
-    // Ubah warna menjadi warna acak
-    const randomColor = getRandomColor();
-    paragraph.style.color = randomColor;
-    });
+    let warna = ["red", "green", "blue", "yellow", "black", "purple"];
+
+    function setRandomColor(element) {
+    let randomWarna = warna[Math.floor(Math.random() * warna.length)];
+    element.style.color = randomWarna;
+    }
+
+    function resetColor() {
+    text1.style.color = "black";
+    text2.style.color = "black";
+    text3.style.color = "black";
+    }
+
+    function startAnimation() {
+    text1.innerHTML = text;
+    text2.innerHTML = text;
+    text3.innerHTML = text;
+
+    setInterval(() => {
+    setRandomColor(text1);
+    setRandomColor(text2);
+    setRandomColor(text3);
     }, 1000);
 
-    // Set timeout untuk menghentikan animasi setelah 10 detik
     setTimeout(() => {
-    clearInterval(); // Hentikan interval
-    }, 10000);
+    resetColor();
+    }, 5000);
     }
 
-    // Fungsi untuk mendapatkan warna acak
-    function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+    startAnimation();
+
+    // tambahkan dengan background latar random
     }
     </script>
   </body>
