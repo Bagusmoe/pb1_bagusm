@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Animasi Warna</title>
+  
+        <style>
+        .color-animation {
+      transition: color 0.5s ease-in-out;
+        }
+        </style>
+    </head>
+  <body>
+    <h3>Belajar Animasi Warna</h3>
+    <p id="text1" class="color-animation"></p>
+    <p id="text2" class="color-animation"></p>
+    <p id="text3" class="color-animation"></p>
+
+    <script>
+
+    let text = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus dolorum
+    voluptate perferendis labore numquam iusto voluptatibus nulla beatae,
+    deserunt fuga nobis harum repellat, aliquam at ut necessitatibus non
+    molestiae atque.`;
+
+    // Ambil masing-masing elemen <p> menggunakan ID
+    const text1Element = document.getElementById('text1');
+    const text2Element = document.getElementById('text2');
+    const text3Element = document.getElementById('text3');
+
+    // Buat elemen paragraf baru
+    const paragraph1 = document.createElement('p');
+    const paragraph2 = document.createElement('p');
+    const paragraph3 = document.createElement('p');
+
+    // Masukkan teks Lorem Ipsum ke dalam elemen paragraf
+    paragraph1.textContent = text;
+    paragraph2.textContent = text;
+    paragraph3.textContent = text;
+
+    // Masukkan elemen paragraf ke dalam masing-masing elemen <p>
+    text1Element.appendChild(paragraph1);
+    text2Element.appendChild(paragraph2);
+    text3Element.appendChild(paragraph3);
+
+    let check = /Lorem/g;
+
+    if (check.test(text)) {
+    // Jalankan animasi jika teks "Lorem" ditemukan
+    animasi();
+    }
+
+    //   function animasi
+    function animasi() {
+    // Tentukan interval untuk mengubah warna setiap 1 detik
+    setInterval(() => {
+    // Ambil elemen-elemen paragraf
+    const paragraphs = document.querySelectorAll('.color-animation');
+
+    // Loop melalui setiap elemen dan ubah warnanya secara acak
+    paragraphs.forEach(paragraph => {
+    // Ubah warna menjadi warna acak
+    const randomColor = getRandomColor();
+    paragraph.style.color = randomColor;
+    });
+    }, 1000);
+
+    // Set timeout untuk menghentikan animasi setelah 10 detik
+    setTimeout(() => {
+    clearInterval(); // Hentikan interval
+    }, 10000);
+    }
+
+    // Fungsi untuk mendapatkan warna acak
+    function getRandomColor() {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+    }
+    </script>
+  </body>
+</html>
